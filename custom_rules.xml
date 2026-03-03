@@ -1,32 +1,4 @@
-
----
-
-## ⚙️ Stack Utilizada
-
-- Wazuh Manager
-- Wazuh Dashboard
-- Wazuh Agent
-- Sysmon (Microsoft Sysinternals)
-- Linux
-- Windows 10/11
-
----
-
-## 🔎 Pipeline Validado
-
-✔ Eventos brutos recebidos  
-✔ Alertas gerados com severidade  
-✔ Mapeamento MITRE ATT&CK  
-✔ Logs indexados em `wazuh-alerts-4.x-*`
-
----
-
-## 🛠️ Regra Customizada (Exemplo)
-
-```xml
-<rule id="100500" level="12">
-  <if_group>sysmon_event1</if_group>
-  <field name="win.eventdata.image">powershell.exe</field>
-  <field name="win.eventdata.commandLine">-enc|-nop|-w hidden</field>
-  <description>Suspicious PowerShell execution</description>
-</rule>
+<localfile>
+  <location>Microsoft-Windows-Sysmon/Operational</location>
+  <log_format>eventchannel</log_format>
+</localfile>
